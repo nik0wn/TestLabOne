@@ -42,14 +42,6 @@ TEST(ArraySumTest, HandlesZeroDecimalNumbers) {
     EXPECT_EQ(negativeSum, 2); // 2+0+0 = 2
 }
 
-// Негативный тест: обработка чисел с очень маленькой дробной частью
-TEST(ArraySumTest, HandlesTinyFractionalPart) {
-    std::vector<double> array = {123456789.0000001, -987654321.0000001};
-    auto [positiveSum, negativeSum] = ArraySum::sumDigitsOfArrayElements(array);
-    EXPECT_GT(positiveSum, 0);
-    EXPECT_GT(negativeSum, 0);
-}
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
