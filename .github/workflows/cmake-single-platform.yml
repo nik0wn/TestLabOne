@@ -15,23 +15,15 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies for lab2
-      run: |
-        cd lab2
-        dotnet restore
-      working-directory: ./lab2
+      run: dotnet restore ./lab2/lab2.csproj
 
     - name: Build lab2
-      run: dotnet build
-      working-directory: ./lab2
+      run: dotnet build ./lab2/lab2.csproj --no-restore
 
     - name: Restore dependencies for TestProject1
-      run: |
-        cd TestProject1
-        dotnet restore
-      working-directory: ./lab2/TestProject1
+      run: dotnet restore ./TestProject1/TestProject1.csproj
 
     - name: Build and test TestProject1
       run: |
-        dotnet build
-        dotnet test
-      working-directory: ./lab2/TestProject1
+        dotnet build ./TestProject1/TestProject1.csproj --no-restore
+        dotnet test ./TestProject1/TestProject1.csproj
